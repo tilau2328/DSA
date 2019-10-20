@@ -1,6 +1,6 @@
 import {faGithub} from '@fortawesome/free-brands-svg-icons';
 import {Component, Input, OnInit, EventEmitter, Output} from '@angular/core';
-import { CreateConnectionDto } from 'src/app/modules/providers/dto/create-connection.dto';
+import {CreateConnectionDto} from "../../../modules/providers/dto/connection.dto";
 
 @Component({
   selector: 'app-connect-button',

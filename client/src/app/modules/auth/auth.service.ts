@@ -1,8 +1,8 @@
 import {Router} from "@angular/router";
 import {Injectable} from "@angular/core";
 import {AuthConnector} from "./auth.connector";
-import {CreateSignInDto} from "./dto/create-sign-in.dto";
-import {CreateSignUpDto} from "./dto/create-sign-up.dto";
+import {CreateSignInDto} from "./dto/sign-in.dto";
+import {CreateSignUpDto} from "./dto/sign-up.dto";
 
 @Injectable()
 export class AuthService {

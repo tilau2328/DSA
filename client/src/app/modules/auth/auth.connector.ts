@@ -1,8 +1,7 @@
 import {Injectable} from "@angular/core";
-import {SignUpDto} from "./dto/sign-up.dto";
+import {CreateSignUpDto, SignUpDto} from "./dto/sign-up.dto";
 import {HttpClient} from "@angular/common/http";
-import {CreateSignInDto} from "./dto/create-sign-in.dto";
-import {CreateSignUpDto} from "./dto/create-sign-up.dto";
+import {CreateSignInDto} from "./dto/sign-in.dto";
 
 @Injectable()
 export class AuthConnector {

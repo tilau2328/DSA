@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {AuthService} from "../../../modules/auth/auth.service";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CreateConnectionDto} from "../../../modules/providers/dto/create-connection.dto";
+import {CreateConnectionDto} from "../../../modules/providers/dto/connection.dto";
 
 @Component({
   selector: 'app-sign-in-form',

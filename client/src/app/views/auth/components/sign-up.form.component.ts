@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
 import {AuthService} from "../../../modules/auth/auth.service";
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CreateSignUpDto} from "../../../modules/auth/dto/create-sign-up.dto";
-import {CreateConnectionDto} from "../../../modules/providers/dto/create-connection.dto";
+import {CreateConnectionDto} from "../../../modules/providers/dto/connection.dto";
+import {CreateSignUpDto} from "../../../modules/auth/dto/sign-up.dto";
 
 @Component({
   selector: 'app-sign-up-form',

@@ -1,36 +1,40 @@
+import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {ProviderDto} from "./dto/provider.dto";
-import {CreateProviderDto} from "./dto/create-provider.dto";
-import {UpdateProviderDto} from "./dto/update-provider.dto";
+import {CreateProviderDto, ProviderDto, UpdateProviderDto} from "./dto/provider.dto";
 
 @Injectable()
 export class ProviderConnector {
-  url = 'http://localhost:3000/auth/providers';
+  private url: string = 'http://localhost:3000/providers';
 
   constructor(private readonly http: HttpClient) {}
 
-  async list(provider: string): Promise<ProviderDto[]> {
-    return this.http.get<ProviderDto[]>(this.getUrl(provider)).toPromise();
+  list(): Observable<ProviderDto[]> {
+    return this.http.get<ProviderDto[]>(this.getUrl());
+  }
+
+  getProviders(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.getUrl()}/enum`);
   }
 
   async get(id: string): Promise<ProviderDto> {
     return this.http.get<ProviderDto>(this.getUrl(id)).toPromise();
   }
 
-  async create(provider: string, createProviderDto: CreateProviderDto): Promise<ProviderDto> {
-    return this.http.post(this.getUrl(), createProviderDto).toPromise();
+  create(createProviderDto: CreateProviderDto): Observable<ProviderDto> {
+    return this.http.post<ProviderDto>(this.getUrl(), createProviderDto);
   }
 
   async update(id: string, updateProviderDto: UpdateProviderDto): Promise<ProviderDto> {
     return this.http.patch<ProviderDto>(this.getUrl(id), updateProviderDto).toPromise();
   }
 
-  async delete(id: string): Promise<string> {
-    return this.http.delete<string>(this.getUrl(id)).toPromise();
+  delete(id: string): Observable<string> {
+    return this.http.delete<string>(this.getUrl(id));
   }
 
-  private getUrl(id?: string) {
-    return this.url + id ? `/${id}` : '';
+  private getUrl(id?: string): string {
+    if (id) { return `${this.url}/${id}`; }
+    return this.url;
   }
 }

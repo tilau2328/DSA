@@ -8,8 +8,8 @@
   <div class="collapse navbar-collapse" id="navBarContent" [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link">
-          <span><fa-icon *ngIf="isLoggedIn$ | async" [icon]="faLink"></fa-icon> Providers</span>
+        <a class="nav-link" [routerLink]="['providers']">
+          <span><fa-icon [icon]="faLink"></fa-icon> Providers</span>
         </a>
       </li>
     </ul>
